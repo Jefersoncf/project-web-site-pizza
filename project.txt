@@ -1,0 +1,22 @@
+ESTRUTURA DO PROJETO
+
+1 - Criar estrutura dos diretórios.
+
+2 - Instalar as dependencias necessaria 
+  - Dependencias:
+    - express
+    - ejs 
+    - express-ejs-layouts
+
+  - Dev dependencias:
+    - nodemon
+
+3 - Criar servidor express:
+  - App.js
+
+4- Criar home page com:
+  - HTML 
+  - CSS
+    - Incluir tailwind CSS
+  
+
