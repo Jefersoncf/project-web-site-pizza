@@ -14,9 +14,13 @@ ESTRUTURA DO PROJETO
 3 - Criar servidor express:
   - App.js
 
-4- Criar home page com:
+4 - Instalar Laravel mix  
+
+5 - Criar home page com:
   - HTML 
   - CSS
     - Incluir tailwind CSS
+
+6 - Criar página do carrinho
   
 

@@ -1,9 +1,9 @@
-const express = require('express');
+// const express = require('express');
 
-const routes = express.Router();
+// const routes = express.Router();
 
-app.get('/', (req, res) => {
-  res.render('home')
-});
+// routes.get('/', (req, res) => {
+//   res.render('home.ejs')
+// });
 
-module.exports = routes;
+// module.exports = routes;
