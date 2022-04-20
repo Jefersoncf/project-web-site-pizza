@@ -15,6 +15,7 @@ ESTRUTURA DO PROJETO
   - App.js
 
 4 - Instalar Laravel mix  
+  - js e scss
 
 5 - Criar home page com:
   - HTML 
@@ -22,5 +23,7 @@ ESTRUTURA DO PROJETO
     - Incluir tailwind CSS
 
 6 - Criar página do carrinho
+  - seção de resumo do pedido  
+  - seção de carrinho vazio
   
 

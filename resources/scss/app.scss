@@ -1,2 +1,12 @@
 
-$primary: red;
+@import './variables';
+
+body {
+  font-family: 'Popins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: $dark;
+}
+
+nav li:last-child a {
+  background: $primary;
+}
