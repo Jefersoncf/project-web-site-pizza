@@ -21,3 +21,18 @@ nav li a:hover {
 section.section-one {
   background: #f8f8f8;
 }
+
+.size {
+  background: #f8f8f8;
+}
+
+.add-to-cart {
+  border: 2px solid #fe5f1e;
+  color: #fe5f1e;
+  transition: all 0.3s ease-in-out;
+}
+.add-to-cart:hover {
+  border-color: #fff;
+  background: #fe5f1e;
+  color: #fff;
+}

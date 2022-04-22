@@ -21,3 +21,16 @@ nav li a {
 section.section-one {
   background: $secondary;
 }
+.size {
+  background: $secondary;
+}
+.add-to-cart {
+  border: 2px solid $primary;
+  color: $primary;
+  transition: $smooth;
+  &:hover {
+    border-color: $pure;
+    background: $primary;
+    color: $pure;
+  }
+}
