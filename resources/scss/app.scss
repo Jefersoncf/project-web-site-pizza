@@ -42,3 +42,10 @@ section.section-one {
     background: $primary-hover;
   }
 }
+
+section.cart {
+  background: $secondary;
+  .amount {
+    color: $primary;
+  }
+}
