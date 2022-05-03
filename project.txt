@@ -26,4 +26,15 @@ ESTRUTURA DO PROJETO
   - seção de resumo do pedido  
   - seção de carrinho vazio
   
+7 - Mover rotas para os arquivos de rota 
+
+8 - Criar controllers
+
+9 - Adicionar funcionalidades ao carrinho
+  - conectar ao mongodb
+  - usar mongo para armazenar sessão 
+    - dependencias
+      - mongoose, express-session, conect-mongo, dotenv  
+    - axios para enviar requisições ajax
+    
 

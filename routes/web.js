@@ -1,9 +1,16 @@
-// const express = require('express');
+const homeController = require('../app/http/controllers/homeController');
+const authController = require('../app/http/controllers/authController');
+const cartController = require('../app/http/controllers/customers/cartController');
 
-// const routes = express.Router();
+function initRoutes(app) {
+  app.get('/', homeController().index);
 
-// routes.get('/', (req, res) => {
-//   res.render('home.ejs')
-// });
+app.get('/cart', cartController().index);
 
-// module.exports = routes;
+app.get('/login', authController().login);
+
+app.get('/register', authController().register);
+
+}
+
+module.exports = initRoutes;
