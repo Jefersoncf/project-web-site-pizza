@@ -22,7 +22,7 @@ const connection = mongoose.connection;
   connection.once('open', () => {
     console.log('Connected to database')
 }).on('err', (err) => {
-    console.log('Error connecting to database' + err);
+    console.log(`Error connecting to database${err}`);
   });
 
 //Session Store
@@ -37,11 +37,12 @@ app.use(session({
   resave: false,
   store: mongoStore,
   saveUninitialized: false,
-  cookie: {maxAge: 1000 * 60 * 60 * 24}
+  cookie: {maxAge: 1000 * 60 * 60 * 24} //24h
+  // cookie: {maxAge: 1000 * 15}
 }));
 
 app.use(flash());
-
+app.use(express.json());
 // app.use(express.urlencoded( { extended: true } ));
 app.use(express.static('public'));
 
