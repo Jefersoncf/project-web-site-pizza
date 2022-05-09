@@ -1,12 +1,19 @@
 import axios from 'axios';
+import Noty from "noty";
+
+// const notyf = new Notyf();
 
 const addToCart = document.querySelectorAll('.add-to-cart');
 const cartCount = document.querySelector('#cartCounter');
 
 function updateCart(pizza){
   axios.post('/update-cart', pizza).then(res => {
-    console.log(res);
     cartCount.innerText = res.data.totalQtd;
+    new Noty({
+      type: 'success',
+      text: "Adicionado com sucesso!"
+    }).show();
+    
   })
 }
 

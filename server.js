@@ -43,8 +43,13 @@ app.use(session({
 
 app.use(flash());
 app.use(express.json());
-// app.use(express.urlencoded( { extended: true } ));
 app.use(express.static('public'));
+
+//global middleware
+app.use((req, res, next) => {
+  res.locals.session = req.session;
+  next();
+})
 
 //Templetes engine
 app.use(expressLayout);
