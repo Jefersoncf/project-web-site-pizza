@@ -313,6 +313,9 @@ section.section-one {
   background: #fe5f1e;
   color: #fff;
 }
+.add-to-cart:focus {
+  outline: none;
+}
 
 .btn-primary {
   background: #fe5f1e;
@@ -335,4 +338,12 @@ section.login {
 }
 section.login a {
   color: #fe5f1e;
+}
+section.login a:hover {
+  color: #b23301;
+}
+
+.noty_theme__mint {
+  border-radius: 20px !important;
+  padding-left: 8px !important;
 }

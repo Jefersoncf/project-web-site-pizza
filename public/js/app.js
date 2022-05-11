@@ -2487,7 +2487,16 @@ function updateCart(pizza) {
     cartCount.innerText = res.data.totalQtd;
     new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
       type: 'success',
-      text: "Adicionado com sucesso!"
+      timeout: 1000,
+      text: "Adicionado ao carrinho!",
+      progressBar: false
+    }).show();
+  })["catch"](function (err) {
+    new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
+      type: 'error',
+      timeout: 1000,
+      text: "Algo deu errado!",
+      progressBar: false
     }).show();
   });
 }

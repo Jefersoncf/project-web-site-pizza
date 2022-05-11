@@ -11,9 +11,18 @@ function updateCart(pizza){
     cartCount.innerText = res.data.totalQtd;
     new Noty({
       type: 'success',
-      text: "Adicionado com sucesso!"
+      timeout: 1000,
+      text: "Adicionado ao carrinho!",
+      progressBar: false,
     }).show();
-    
+
+  }).catch(err => {
+    new Noty({
+      type: 'error',
+      timeout: 1000,
+      text: "Algo deu errado!",
+      progressBar: false,
+    }).show();
   })
 }
 

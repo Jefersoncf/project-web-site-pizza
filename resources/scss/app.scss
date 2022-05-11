@@ -35,6 +35,9 @@ section.section-one {
     background: $primary;
     color: $pure;
   }
+  &:focus {
+    outline: none;
+  }
 }
 
 .btn-primary {
@@ -57,5 +60,13 @@ section.login {
 
   a {
     color: $primary;
+    &:hover {
+      color: $primary-hover;
+    }
   }
+}
+
+.noty_theme__mint {
+  border-radius: 20px!important;
+  padding-left: 8px!important;
 }
