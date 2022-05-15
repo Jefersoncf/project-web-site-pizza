@@ -36,5 +36,17 @@ ESTRUTURA DO PROJETO
     - dependencias
       - mongoose, express-session, conect-mongo, dotenv  
     - axios para enviar requisições ajax
+    - instalar lib de notificação js (noty)
+
+10 - Criar página de login com rota 
+
+11 - Criar página de registros com rota
+
+12 - Criar CRUD de registro 
+  - usar dependencias express-flash express-session dotenv
+  - criar status code
+
+13 - Criar login usando passport
+  - instalar dependencias passport passport-local express-session
     
 
