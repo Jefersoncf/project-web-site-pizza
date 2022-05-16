@@ -6,8 +6,11 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 require('dotenv').config();
 const flash = require('express-flash');
+const passport = require('passport');
 
 const MongoDbStore = require('connect-mongo')(session);
+
+const passportInit = require('./app/config/passport');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -24,6 +27,11 @@ const connection = mongoose.connection;
 }).on('err', (err) => {
     console.log(`Error connecting to database${err}`);
   });
+
+// Passport config
+passportInit(passport);
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Session Store
 let mongoStore = new MongoDbStore({
