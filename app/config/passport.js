@@ -4,16 +4,12 @@ const bcrypt = require('bcrypt');
 
 function init(passport) {
   passport.use(new LocalStrategy({usernameField: 'email'}, async (email, password, done) => {
-
     //Login user
-
     //Check if email exists
-
     const user = await User.findOne({email: email});
     if(!user) {
       return done(null, false, {message: 'Não existe usuário com este email'});
     };
-
     bcrypt.compare(password, user.password)
     .then(match => {
       if(match) {
@@ -22,7 +18,7 @@ function init(passport) {
       return done(null, false, {message: 'Usuário ou senha errado'});
     }).catch(err => {
       return done(null, false, {message: 'Algo deu errado'});
-    });
+    })
   }));
   passport.serializeUser((user, done) => {
     done(null, user._id)
@@ -32,7 +28,6 @@ function init(passport) {
       done(err, user);
     });
   });
-
 };
 
 module.exports = init;

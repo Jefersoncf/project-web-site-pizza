@@ -10,7 +10,7 @@ const passport = require('passport');
 
 const MongoDbStore = require('connect-mongo')(session);
 
-const passportInit = require('./app/config/passport');
+
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -28,16 +28,11 @@ const connection = mongoose.connection;
     console.log(`Error connecting to database${err}`);
   });
 
-// Passport config
-passportInit(passport);
-app.use(passport.initialize());
-app.use(passport.session());
-
 //Session Store
 let mongoStore = new MongoDbStore({
   mongooseConnection: connection,
   collection: 'sessions'
-})
+});
 
 //session config
 app.use(session({
@@ -49,6 +44,12 @@ app.use(session({
   // cookie: {maxAge: 1000 * 15}
 }));
 
+// Passport config
+const passportInit = require('./app/config/passport');
+passportInit(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(flash());
 app.use(express.json());
 app.use(express.static('public'));
@@ -58,7 +59,7 @@ app.use(express.urlencoded({extended: false}));
 app.use((req, res, next) => {
   res.locals.session = req.session;
   next();
-})
+});
 
 //Templetes engine
 app.use(expressLayout);
@@ -69,5 +70,5 @@ require('./routes/web')(app);
 
 app.listen(port, () => {
   console.log('listening on here!')
-})
+});
 

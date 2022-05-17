@@ -1,10 +1,30 @@
 const bcrypt = require('bcrypt');
 const User = require('../../models/user');
+const passport = require('passport');
 
 function authController() {
   return {
     login(req, res) {
       res.render('auth/login')
+    },
+    postLogin(req, res, next) {
+      passport.authenticate('local', (err, user, info) => {
+        if (err) {
+          req.flash('error', info.message);
+          return next(err);
+        }
+        if (!user) {
+          req.flash('error', info.message);
+          return res.redirect('/login');
+        }
+        req.logIn(user, (err) => {
+          if (err) {
+            req.flash('error', info.message);
+            return next(err);
+          }
+          return res.redirect('/');
+        });
+      })(req, res, next);
     },
     register(req, res) {
       res.render('auth/register')
@@ -17,7 +37,7 @@ function authController() {
         req.flash('name', name);
         req.flash('email', email);
         return res.redirect('/register')
-      }
+      };
       //Check if email exists
       User.exists({email: email}, (err, result) => {
         if(result) {
@@ -46,9 +66,8 @@ function authController() {
         req.flash('error', 'Algo deu errado');
         return res.redirect('/register')
       });
-
     }
   }
-}
+};
 
 module.exports = authController;

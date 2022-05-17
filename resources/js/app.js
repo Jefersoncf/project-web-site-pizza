@@ -24,7 +24,7 @@ function updateCart(pizza){
       progressBar: false,
     }).show();
   })
-}
+};
 
 addToCart.forEach((btn) => {
   btn.addEventListener('click', (e) => {
