@@ -5,7 +5,7 @@ const passport = require('passport');
 function authController() {
   return {
     login(req, res) {
-      res.render('auth/login')
+      res.render('auth/login');
     },
     postLogin(req, res, next) {
       passport.authenticate('local', (err, user, info) => {
@@ -27,7 +27,7 @@ function authController() {
       })(req, res, next);
     },
     register(req, res) {
-      res.render('auth/register')
+      res.render('auth/register');
     },
     async postRegister(req, res) {
       const {name, email, password} = req.body;
@@ -36,7 +36,7 @@ function authController() {
         req.flash('error', 'Preencha todos os campos');
         req.flash('name', name);
         req.flash('email', email);
-        return res.redirect('/register')
+        return res.redirect('/register');
       };
       //Check if email exists
       User.exists({email: email}, (err, result) => {
@@ -44,7 +44,7 @@ function authController() {
           req.flash('error', 'Email já cadastrado');
           req.flash('name', name);
           req.flash('email', email);
-          return res.redirect('/register')
+          return res.redirect('/register');
         }
       });
       //Hash password
@@ -61,11 +61,15 @@ function authController() {
       user.save()
       .then((user) => {
         //login 
-        return res.redirect('/')
+        return res.redirect('/');
       }).catch(err => {
         req.flash('error', 'Algo deu errado');
-        return res.redirect('/register')
+        return res.redirect('/register');
       });
+    }, 
+    logout(req, res) {
+      req.logout();
+      return res.redirect('/login');
     }
   }
 };

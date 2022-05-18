@@ -10,8 +10,6 @@ const passport = require('passport');
 
 const MongoDbStore = require('connect-mongo')(session);
 
-
-
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -58,6 +56,7 @@ app.use(express.urlencoded({extended: false}));
 //global middleware
 app.use((req, res, next) => {
   res.locals.session = req.session;
+  res.locals.user = req.user;
   next();
 });
 
