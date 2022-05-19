@@ -49,4 +49,10 @@ ESTRUTURA DO PROJETO
 13 - Criar login usando passport
   - instalar dependencias passport passport-local express-session
     
+14 - Criar controlador de pedidos com link de server.js
 
+15 - Criar visualizações de pedidos com tabela para cliente e administrador
+
+16 - Criar página de pedidos com status
+
+17 - Criar funcionalidade de fazer pedidos
