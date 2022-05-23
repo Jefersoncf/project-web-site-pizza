@@ -5,7 +5,7 @@ function orderController () {
     store(req, res) {
       //Validate request
       const {phone, address} = req.body;
-      if (!phone || address) {
+      if (!phone || !address) {
         req.flash('error', 'Preencha todos os campos');
         return res.redirect('/cart');
       }
@@ -16,14 +16,17 @@ function orderController () {
         phone,
         address
       });
-      order.save()
-      .then(result => {
+      order.save().then(result => {
         req.flash('success', 'Pedido feito com sucesso.');
         return res.redirect('/');
       }).catch(err => {
         req.flash('error', 'Algo deu errado');
         return res.redirect('/cart');
       });
+    }, 
+    async index(req, res) {
+      const orders = await Order.find({ customerId: req.user._id });
+      res.render('customers/orders', { orders: orders });
     }
   }
 }

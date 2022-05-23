@@ -1,14 +1,14 @@
+require('dotenv').config();
 const express = require('express');
 const ejs = require('ejs');
-const expressLayout = require('express-ejs-layouts');
 const path = require('path');
+const expressLayout = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const session = require('express-session');
-require('dotenv').config();
 const flash = require('express-flash');
+const MongoDbStore = require('connect-mongo')(session);
 const passport = require('passport');
 
-const MongoDbStore = require('connect-mongo')(session);
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -66,6 +66,9 @@ app.set('views', path.join(__dirname, './resources/views'));
 app.set('view engine', 'ejs');
 
 require('./routes/web')(app);
+// app.use((req, res) => {
+//   res.status(404).render('errors/404');
+// });
 
 app.listen(port, () => {
   console.log('listening on here!')
