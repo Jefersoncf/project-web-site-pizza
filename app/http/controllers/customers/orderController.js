@@ -1,4 +1,5 @@
 const Order = require('../../../models/order');
+const moment = require('moment'); // format date
 
 function orderController () {
   return {
@@ -26,7 +27,7 @@ function orderController () {
     }, 
     async index(req, res) {
       const orders = await Order.find({ customerId: req.user._id });
-      res.render('customers/orders', { orders: orders });
+      res.render('customers/orders', { orders: orders, moment: moment });
     }
   }
 }

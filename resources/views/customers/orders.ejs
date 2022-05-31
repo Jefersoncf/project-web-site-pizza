@@ -12,26 +12,41 @@
       <thead>
         <tr>
           <th class="px-4 py-2 text-left">Pedidos</th>
+          <th class="px-4 py-2 text-left">Telefone</th>
           <th class="px-4 py-2 text-left">Endereço</th>
           <th class="px-4 py-2 text-left">Tempo</th>
         </tr>
       </thead>
 
       <tbody>
-        <tr>
-          <td class="border px-4 py-2">
-            <a class="link" href="/">628ad0e41a0602d9d12eebc8</a>
-          </td>
+        <% if(orders.length) { %> 
+          <% orders.forEach((order) => { %> 
+            <tr>
+              <td class="border px-4 py-2">
+                <a class="link" href="/"><%= order._id %> </a>
+              </td>
 
-          <td class="border px-4 py-2">
-            Test address
-          </td>
-         
-          <td class="border px-4 py-2">
-            09:44 PM
-          </td>
+              <td class="border px-4 py-2">
+                <%= order.phone %>
+              </td>
+    
+              <td class="border px-4 py-2">
+                <%= order.address %>
+              </td>
+             
+              <td class="border px-4 py-2">
+                <%= moment(order.createdAt).format('L'); %>
+              </td>
+            </tr>
+          <% }) %> 
   
-        </tr>
+        <% }else{ %> 
+          <tr>
+            <td class="p-4"><span>Pedidos não encontrados!</span></td>
+          </tr>
+
+        <% } %> 
+
       </tbody>
     </table>
   </div>
