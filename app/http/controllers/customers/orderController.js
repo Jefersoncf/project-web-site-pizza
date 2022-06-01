@@ -18,15 +18,17 @@ function orderController () {
         address
       });
       order.save().then(result => {
-        req.flash('success', 'Pedido feito com sucesso.');
-        return res.redirect('/');
+        req.flash('success', 'Pedido adicionado com sucesso!');
+        delete req.session.cart;
+        return res.redirect('/customer/orders');
       }).catch(err => {
         req.flash('error', 'Algo deu errado');
         return res.redirect('/cart');
       });
     }, 
     async index(req, res) {
-      const orders = await Order.find({ customerId: req.user._id });
+      const orders = await Order.find({ customerId: req.user._id }, 
+        null, {sort: {'createdAt': -1}}); //sorting in ascending order
       res.render('customers/orders', { orders: orders, moment: moment });
     }
   }

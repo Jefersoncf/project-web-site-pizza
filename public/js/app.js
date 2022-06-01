@@ -2507,7 +2507,17 @@ addToCart.forEach(function (btn) {
     var pizza = JSON.parse(btn.dataset.pizza);
     updateCart(pizza);
   });
-});
+}); //Remove alert message after X seconds
+
+var alertMessage = document.querySelector('#success-alert');
+
+if (alertMessage) {
+  setTimeout(function () {
+    alertMessage.remove();
+  }, 3000);
+}
+
+;
 
 /***/ }),
 
