@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Noty from "noty";
-
+import { initAdmin } from './admin';
 // const notyf = new Notyf();
 
 const addToCart = document.querySelectorAll('.add-to-cart');
@@ -40,3 +40,5 @@ if (alertMessage) {
     alertMessage.remove();
   }, 3000)
 };
+
+initAdmin();
