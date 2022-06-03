@@ -1,3 +1,5 @@
+import axios from 'axios';
+import moment from 'moment';
 
 function initAdmin() {
   const orderTable = document.querySelector('#orderTable');
@@ -6,14 +8,21 @@ function initAdmin() {
 
   axios.get('/admin/orders', {
     headers: { 'X-Requested-With': 'XMLHttpRequest'}
-    .then(res => {
+    }).then(res => {
       orders = res.data;
       markup = generateMarkup(orders);
       orderTable.innerHTML = markup;
     }).catch(err => {
-      console.log(err);
-    })
-  });
+      console.log(err); 
+    });
+
+  function renderItems(items) {
+    let parseItems = Object.values(items);
+    return parseItems.map((menuItem) => {
+    return `<p>${menuItem.item.name} - ${menuItem.qtd} pcs</p>`
+    }).join('');
+  }
+
   function generateMarkup(orders) {
     return orders.map(order => {
       return `
