@@ -56,3 +56,10 @@ ESTRUTURA DO PROJETO
 16 - Criar página de pedidos com status
 
 17 - Criar funcionalidade de fazer pedidos
+
+18 - Mostrar todos os pedidos do cliente na página de pedidos
+
+19 - Mostrar todos os pedidos na página administrador
+
+20 - Rastrear pedidos
+  - Instalar dependencia moment
