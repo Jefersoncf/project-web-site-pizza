@@ -62,4 +62,9 @@ ESTRUTURA DO PROJETO
 19 - Mostrar todos os pedidos na página administrador
 
 20 - Rastrear pedidos
-  - Instalar dependencia moment
+  - Instalar Socket 
+    - Instalar dependencia socket.io
+
+21 - conclusão do desenvolvimento do projeto
+
+22 - Deploy do projeto.

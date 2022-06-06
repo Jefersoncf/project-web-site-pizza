@@ -351,3 +351,12 @@ section.login a:hover {
 a.link {
   color: #fe5f1e;
 }
+
+section.status {
+  background: #f8f8f8;
+  min-height: calc(100vh - 86px);
+}
+
+.status-box {
+  padding: 60px 0 0;
+}
