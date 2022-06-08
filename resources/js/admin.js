@@ -1,7 +1,7 @@
 import axios from 'axios';
 import moment from 'moment';
 
-function initAdmin() {
+export function initAdmin(socket) {
   const orderTable = document.querySelector('#orderTable');
   let orders = [];
   let markup;
@@ -71,10 +71,14 @@ function initAdmin() {
               ${ order.paymentStatus ? 'paid' : 'Not paid' }
           </td>
       </tr>
-    `
+    `;
     }).join('')
   }
-  
 }
 
-module.exports = initAdmin;
+//Socket 
+socket.on('orderPlaced', (order) => {
+    
+})
+
+// module.exports = initAdmin;

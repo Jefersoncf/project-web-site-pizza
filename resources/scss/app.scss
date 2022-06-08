@@ -150,3 +150,23 @@ section.status {
 .status-box ul li:nth-child(5) span:after {
   box-shadow: 0 20px 1px 20px $secondary;
 }
+// line
+.status-box ul li.step-completed:before {
+  background: $gray;
+}
+// Dots
+.status-box ul li.step-completed span:after {
+  background: $gray;
+}
+//text 
+.status-box ul li.step-completed span {
+  color: $gray;
+}
+
+//Current status 
+.status-box ul li.current span {
+  color: $primary;
+}
+.status-box ul li.current span:after {
+  background: $primary;
+}

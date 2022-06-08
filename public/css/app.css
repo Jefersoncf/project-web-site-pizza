@@ -432,3 +432,23 @@ section.status {
 .status-box ul li:nth-child(5) span:after {
   box-shadow: 0 20px 1px 20px #f8f8f8;
 }
+
+.status-box ul li.step-completed:before {
+  background: #ccc;
+}
+
+.status-box ul li.step-completed span:after {
+  background: #ccc;
+}
+
+.status-box ul li.step-completed span {
+  color: #ccc;
+}
+
+.status-box ul li.current span {
+  color: #fe5f1e;
+}
+
+.status-box ul li.current span:after {
+  background: #fe5f1e;
+}
