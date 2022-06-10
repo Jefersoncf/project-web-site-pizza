@@ -1,5 +1,6 @@
 import axios from 'axios';
 import moment from 'moment';
+import Noty from 'noty';
 
 export function initAdmin(socket) {
   const orderTable = document.querySelector('#orderTable');
@@ -70,15 +71,24 @@ export function initAdmin(socket) {
           <td class="border px-4 py-2">
               ${ order.paymentStatus ? 'paid' : 'Not paid' }
           </td>
-      </tr>
+        </tr>
     `;
     }).join('')
-  }
 }
 
-//Socket 
-socket.on('orderPlaced', (order) => {
-    
-})
+  //Socket 
+  socket.on('orderPlaced', (order) => {
+    new Noty({
+        type: 'success',
+        timeout: 1000,
+        text: 'Novo Pedido!',
+        progressBar: false,
+    }).show();
+    orders.unshift(order);
+    orderTable.innerHTML = '';
+    orderTable.innerHTML = generateMarkup(orders)
+  })
+}
+
 
 // module.exports = initAdmin;

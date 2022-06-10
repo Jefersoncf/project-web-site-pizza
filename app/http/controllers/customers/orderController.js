@@ -20,6 +20,11 @@ function orderController () {
       order.save().then(result => {
         req.flash('success', 'Pedido adicionado com sucesso!');
         delete req.session.cart;
+
+        //Emit
+        const eventEmitter = req.app.get('eventEmitter')
+        eventEmitter.emit('orderPlaced', result);
+
         return res.redirect('/customer/orders');
       }).catch(err => {
         req.flash('error', 'Algo deu errado');
