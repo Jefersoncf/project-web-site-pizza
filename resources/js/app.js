@@ -42,8 +42,6 @@ if (alertMessage) {
   }, 3000);
 };
 
-initAdmin();
-
 //change order status
 let statuses = document.querySelectorAll('.status_line');
 let hiddenInput = document.querySelector('#hiddenInput');
@@ -77,6 +75,7 @@ updateStatus(order);
 
 //Socket
 let socket = io();
+initAdmin(socket);
 //join
 if(order) {
   socket.emit('join', `order_${order._id}`);
@@ -87,7 +86,7 @@ let adminAreaPath = window.location.pathname;
 console.log(adminAreaPath);
 if(adminAreaPath.includes('admin')) {
   socket.emit('join', 'adminRoom')
-}
+};
 
 socket.on('orderUpdated', (data) => {
   const updatedOrder = { ...order };

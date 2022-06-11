@@ -74,10 +74,10 @@ export function initAdmin(socket) {
         </tr>
     `;
     }).join('')
-}
+    }
 
-  //Socket 
-  socket.on('orderPlaced', (order) => {
+    //Socket
+    socket.on('orderPlaced', (order) => {
     new Noty({
         type: 'success',
         timeout: 1000,
@@ -87,7 +87,7 @@ export function initAdmin(socket) {
     orders.unshift(order);
     orderTable.innerHTML = '';
     orderTable.innerHTML = generateMarkup(orders)
-  })
+    })
 }
 
 
