@@ -2629,8 +2629,7 @@ function updateStatus(order) {
 ;
 updateStatus(order); //Socket
 
-var socket = io();
-(0,_admin__WEBPACK_IMPORTED_MODULE_2__.initAdmin)(socket); //join
+var socket = io(); //join
 
 if (order) {
   socket.emit('join', "order_".concat(order._id));
@@ -2638,10 +2637,10 @@ if (order) {
 
 ; //Admin
 
-var adminAreaPath = window.location.pathname;
-console.log(adminAreaPath);
+var adminAreaPath = window.location.pathname; // console.log(adminAreaPath);
 
 if (adminAreaPath.includes('admin')) {
+  (0,_admin__WEBPACK_IMPORTED_MODULE_2__.initAdmin)(socket);
   socket.emit('join', 'adminRoom');
 }
 

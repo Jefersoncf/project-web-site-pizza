@@ -1,7 +1,7 @@
 
 <section class="status">
   <div class="container mx-auto">
-    <div class="status-box w-2/3 mx-auto">
+    <div class="status-box w-full lg:w-2/3 mx-auto">
       <div class="flex items-center justify-between mb-12">
         <h1 class="text-xl font-bold">Acompanhar status da entrega</h1>
         <h6 class="bg-white py-1 rounded-full px-4 text-green-600 text-xs"><%= order._id %></h6>
@@ -10,10 +10,10 @@
       </div>
 
       <ul>
-        <li class="status_line text-xl pb-16" data-status="order_placed"><span>Pedido feito</span></li>
-        <li class="status_line text-xl pb-16" data-status="confirmed"><span>Confirmação do pedido</span></li>
-        <li class="status_line text-xl pb-16" data-status="prepared"><span>Preparando</span></li>
-        <li class="status_line text-xl pb-16" data-status="completed"><span>Saiu para entrega</span></li>
+        <li class="status_line text-sm md:text-xl pb-16" data-status="order_placed"><span>Pedido feito</span></li>
+        <li class="status_line text-sm md:text-xl pb-16" data-status="confirmed"><span>Confirmação do pedido</span></li>
+        <li class="status_line text-sm md:text-xl pb-16" data-status="prepared"><span>Preparando</span></li>
+        <li class="status_line text-sm md:text-xl pb-16" data-status="completed"><span>Saiu para entrega</span></li>
         <li class="status_line text-xl"><span>Completo</span></li>
       </ul>
     </div>

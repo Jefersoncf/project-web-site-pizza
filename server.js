@@ -10,7 +10,6 @@ const MongoDbStore = require('connect-mongo')(session);
 const passport = require('passport');
 const Emitter = require('events')
 
-
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -44,7 +43,6 @@ app.use(session({
   store: mongoStore,
   saveUninitialized: false,
   cookie: {maxAge: 1000 * 60 * 60 * 24} //24h
-  // cookie: {maxAge: 1000 * 15}
 }));
 
 // Passport config
@@ -82,9 +80,7 @@ const server = app.listen(port, () => {
 //Socket
 const io = require('socket.io')(server);
 io.on('connection', (socket) => {
-  // console.log(socket.id);
   socket.on('join', (orderId) => {
-    // console.log(orderId);
     socket.join(orderId)
   })
 });
